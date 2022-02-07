@@ -1,8 +1,11 @@
 import React from 'react';
 
 export default function SearchForm(props) {
+  const submitHandler = (event) => {
+    event.preventDefault();
+  };
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <label htmlFor="location">Location</label>
       <input
         type="text"

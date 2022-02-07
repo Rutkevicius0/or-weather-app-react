@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { LocationContextProvider } from './store/location-context';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <LocationContextProvider>
     <App />
-  </React.StrictMode>,
+  </LocationContextProvider>,
   document.getElementById('root'),
 );
