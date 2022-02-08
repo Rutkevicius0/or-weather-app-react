@@ -14,6 +14,9 @@ const useHttp = () => {
         url +
         `forecast/daily/${value}?alt=0&tempunit=C&windunit=MS&periods=8&dataset=full`;
     }
+    if (value === '') {
+      return;
+    }
     try {
       await fetch(url, {
         method: 'GET',
