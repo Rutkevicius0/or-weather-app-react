@@ -9,8 +9,7 @@ import SingleLocationItem from './components/Locations/SingleLocation/SingleLoca
 function App() {
   const { searchInputValue, searchResultsHandler, singleLocationInfo } =
     useContext(LocationContext);
-  const [searchValue, setSearchValue] = useState('');
-  const [locations, setLocations] = useState([]);
+
   const { sendRequest } = useHttp();
 
   useEffect(() => {
@@ -23,14 +22,10 @@ function App() {
     };
   }, [sendRequest, searchInputValue, searchResultsHandler]);
 
-  const locationSearchHandler = (searchValue) => {
-    setSearchValue(searchValue);
-  };
-
   return (
     <div className="App">
-      <SearchForm onLocationSearch={locationSearchHandler} />
-      <LocationsList locations={locations} />
+      <SearchForm />
+      <LocationsList />
       {singleLocationInfo.id && <SingleLocationItem />}
     </div>
   );
