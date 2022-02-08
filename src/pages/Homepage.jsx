@@ -1,10 +1,12 @@
 import React from 'react';
-import SearchBox from '../components/SearchBox';
+import LocationsList from '../components/Locations/LocationsList';
+import SearchForm from '../components/SearchForm';
 
 export default function Homepage() {
   return (
     <>
-      <SearchBox />
+      <SearchForm />
+      <LocationsList />
     </>
   );
 }

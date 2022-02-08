@@ -9,14 +9,14 @@ const LocationsListItem = (props) => {
   const { sendRequest } = useHttp();
   const getWeatherData = () => {
     sendRequest('info', props.id, ctx.singleLocationInfoHandler);
-    sendRequest('current', props.id, ctx.locationCurrentWeatherHandler);
-    sendRequest('forecast', props.id, ctx.locationForecastHandler);
+    // sendRequest('current', props.id, ctx.locationCurrentWeatherHandler);
+    // sendRequest('forecast', props.id, ctx.locationForecastHandler);
   };
   console.log(ctx);
   return (
     <li onClick={getWeatherData}>
-      <Link to={`/${props.country}/${props.city}`}>
-        `${props.city}, ${props.country}`
+      <Link to={`/${props.country}/${props.city}/${props.id}`}>
+        {`${props.city}, ${props.country}`}
       </Link>
     </li>
   );

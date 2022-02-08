@@ -1,15 +1,14 @@
-import { useState, useEffect, useContext } from 'react';
+import { useEffect, useContext } from 'react';
 import './App.css';
 import useHttp from './hooks/use-http';
-import SearchForm from './components/SearchForm';
-import LocationsList from './components/Locations/LocationsList';
+
 import LocationContext from './store/location-context';
-import SingleLocationItem from './components/Locations/SingleLocation/SingleLocationItem';
-import SearchBox from './components/SearchBox';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Homepage from './pages/HomePage';
+import WeatherPage from './pages/WeatherPage';
 
 function App() {
-  const { searchInputValue, searchResultsHandler, singleLocationInfo } =
+  const { searchInputValue, searchResultsHandler } =
     useContext(LocationContext);
 
   const { sendRequest } = useHttp();
@@ -27,8 +26,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/:country/:city" element={<SingleLocationItem />} />
-        <Route path="/" element={<SearchBox />} />
+        <Route path=":country/:city/:id" element={<WeatherPage />} />
+        <Route path="/" element={<Homepage />}></Route>
       </Routes>
     </BrowserRouter>
   );

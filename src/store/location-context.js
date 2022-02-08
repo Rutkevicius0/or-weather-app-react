@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 
 const LocationContext = React.createContext({
   searchInputValue: '',
@@ -18,7 +18,6 @@ export const LocationContextProvider = (props) => {
   const [searchResults, setSearchResults] = useState([]);
   const [locationCurrentWeather, setLocationCurrentWeather] = useState({});
   const [locationForecast, setLocationForecast] = useState({});
-  const [data, setData] = useState([]);
 
   const searchInputValueHandler = (value) => {
     setSearchInputValue(value);

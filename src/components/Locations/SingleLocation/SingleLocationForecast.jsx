@@ -1,5 +1,6 @@
 import React from 'react';
 
-export default function SingleLocationForecast() {
-  return <div></div>;
+export default function SingleLocationForecast(props) {
+  console.log(props.forecast);
+  return <div>Forecast</div>;
 }
