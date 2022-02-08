@@ -1,25 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import './App.css';
 import useHttp from './hooks/use-http';
-// import { Cases } from './utilities/requests';
 import SearchForm from './components/SearchForm';
 import LocationsList from './components/Locations/LocationsList';
+import LocationContext from './store/location-context';
+import SingleLocationItem from './components/Locations/SingleLocation/SingleLocationItem';
 
 function App() {
+  const { searchInputValue, searchResultsHandler, singleLocationInfo } =
+    useContext(LocationContext);
   const [searchValue, setSearchValue] = useState('');
   const [locations, setLocations] = useState([]);
-
   const { sendRequest } = useHttp();
 
   useEffect(() => {
-    const getLocations = ({ locations }) => setLocations(locations);
+    const getLocations = ({ locations }) => searchResultsHandler(locations);
     const identifier = setTimeout(() => {
-      sendRequest('search', searchValue, getLocations);
+      sendRequest('search', searchInputValue, getLocations);
     }, 500);
     return () => {
       clearTimeout(identifier);
     };
-  }, [sendRequest, searchValue]);
+  }, [sendRequest, searchInputValue, searchResultsHandler]);
 
   const locationSearchHandler = (searchValue) => {
     setSearchValue(searchValue);
@@ -29,6 +31,7 @@ function App() {
     <div className="App">
       <SearchForm onLocationSearch={locationSearchHandler} />
       <LocationsList locations={locations} />
+      {singleLocationInfo.id && <SingleLocationItem />}
     </div>
   );
 }

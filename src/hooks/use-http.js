@@ -5,6 +5,8 @@ const useHttp = () => {
     let url = 'https://foreca-weather.p.rapidapi.com/';
     if (requestFor === 'search') {
       url = url + `location/search/${value}?lang=en`;
+    } else if (requestFor === 'info') {
+      url = url + `location/${value}`;
     } else if (requestFor === 'current') {
       url =
         url +

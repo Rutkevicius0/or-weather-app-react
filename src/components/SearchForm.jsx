@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import LocationContext from '../store/location-context';
 
 export default function SearchForm(props) {
+  const ctx = useContext(LocationContext);
   const submitHandler = (event) => {
     event.preventDefault();
   };
@@ -11,7 +13,7 @@ export default function SearchForm(props) {
         type="text"
         id="location"
         onChange={(e) => {
-          props.onLocationSearch(e.target.value);
+          ctx.searchInputValueHandler(e.target.value);
         }}
       />
     </form>

@@ -1,26 +1,58 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 const LocationContext = React.createContext({
-  selectedLocation: '',
-  loadLocation: (id) => {},
-  data: '',
-  loadData: () => {},
+  searchInputValue: '',
+  singleLocationInfo: '',
+  searchInputValueHandler: () => {},
+  searchResults: [],
+  searchResultsHandler: () => {},
+  locationCurrentWeather: {},
+  locationCurrentWeatherHandler: () => {},
+  locationForeCast: {},
+  locationForecastHandler: () => {},
 });
 
 export const LocationContextProvider = (props) => {
-  const [selectedLocation, setSelectedLocation] = useState('');
+  const [searchInputValue, setSearchInputValue] = useState('');
+  const [singleLocationInfo, setSingleLocationInfo] = useState({});
+  const [searchResults, setSearchResults] = useState([]);
+  const [locationCurrentWeather, setLocationCurrentWeather] = useState({});
+  const [locationForecast, setLocationForecast] = useState({});
   const [data, setData] = useState([]);
 
-  const loadLocation = (id) => {
-    setSelectedLocation(id);
+  const searchInputValueHandler = (value) => {
+    setSearchInputValue(value);
   };
-  const loadData = (data) => {
-    setData(data);
+  const singleLocationInfoHandler = (data) => {
+    setSingleLocationInfo(data);
+  };
+
+  const searchResultsHandler = useCallback((dataArray) => {
+    setSearchResults(dataArray);
+  }, []);
+
+  const locationCurrentWeatherHandler = (data) => {
+    setLocationCurrentWeather(data);
+  };
+
+  const locationForecastHandler = (data) => {
+    setLocationForecast(data);
   };
 
   return (
     <LocationContext.Provider
-      value={{ selectedLocation, loadLocation, data, loadData }}
+      value={{
+        searchInputValue,
+        searchResults,
+        locationCurrentWeather,
+        locationForecast,
+        searchInputValueHandler,
+        searchResultsHandler,
+        locationCurrentWeatherHandler,
+        locationForecastHandler,
+        singleLocationInfo,
+        singleLocationInfoHandler,
+      }}
     >
       {props.children}
     </LocationContext.Provider>
