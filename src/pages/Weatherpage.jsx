@@ -24,7 +24,7 @@ export default function WeatherPage() {
 
   return (
     <div>
-      <h2>{`${city}, ${country}`}</h2>
+      <h2>{`Current weather in ${city}, ${country}`}</h2>
       <SingleLocationCurrent currentWeather={locationCurrentWeather} />
       <SingleLocationForecast forecast={locationForecast} />
     </div>
