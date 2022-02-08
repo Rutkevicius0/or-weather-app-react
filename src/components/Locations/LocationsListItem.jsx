@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
+
 import LocationContext from '../../store/location-context';
 import useHttp from '../../hooks/use-http';
+import { Link } from 'react-router-dom';
 
 const LocationsListItem = (props) => {
   const ctx = useContext(LocationContext);
@@ -11,6 +13,12 @@ const LocationsListItem = (props) => {
     sendRequest('forecast', props.id, ctx.locationForecastHandler);
   };
   console.log(ctx);
-  return <li onClick={getWeatherData}>{`${props.city}, ${props.country}`}</li>;
+  return (
+    <li onClick={getWeatherData}>
+      <Link to={`/${props.country}/${props.city}`}>
+        `${props.city}, ${props.country}`
+      </Link>
+    </li>
+  );
 };
 export default LocationsListItem;

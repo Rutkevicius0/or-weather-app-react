@@ -6,6 +6,7 @@ import LocationsList from './components/Locations/LocationsList';
 import LocationContext from './store/location-context';
 import SingleLocationItem from './components/Locations/SingleLocation/SingleLocationItem';
 import SearchBox from './components/SearchBox';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   const { searchInputValue, searchResultsHandler, singleLocationInfo } =
@@ -24,10 +25,12 @@ function App() {
   }, [sendRequest, searchInputValue, searchResultsHandler]);
 
   return (
-    <div className="App">
-      <SearchBox />
-      {singleLocationInfo.id && <SingleLocationItem />}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/:country/:city" element={<SingleLocationItem />} />
+        <Route path="/" element={<SearchBox />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
