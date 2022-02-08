@@ -5,6 +5,7 @@ import SearchForm from './components/SearchForm';
 import LocationsList from './components/Locations/LocationsList';
 import LocationContext from './store/location-context';
 import SingleLocationItem from './components/Locations/SingleLocation/SingleLocationItem';
+import SearchBox from './components/SearchBox';
 
 function App() {
   const { searchInputValue, searchResultsHandler, singleLocationInfo } =
@@ -24,8 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      <SearchForm />
-      <LocationsList />
+      <SearchBox />
       {singleLocationInfo.id && <SingleLocationItem />}
     </div>
   );

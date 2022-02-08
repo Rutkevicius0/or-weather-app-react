@@ -1,10 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import LocationContext from '../../store/location-context';
 import LocationsListItem from './LocationsListItem';
 
-export default function LocationsList(props) {
+const LocationsList = (props) => {
   const { searchResults } = useContext(LocationContext);
-  const slicedSearchResults = searchResults.slice(0, 5);
+  const slicedSearchResults = useMemo(
+    () => searchResults.slice(0, 5),
+    [searchResults],
+  );
+  console.log(searchResults);
   return (
     <ul>
       {slicedSearchResults.map(({ id, name: city, country }) => (
@@ -12,4 +16,6 @@ export default function LocationsList(props) {
       ))}
     </ul>
   );
-}
+};
+
+export default React.memo(LocationsList);

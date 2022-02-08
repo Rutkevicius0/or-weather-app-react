@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import LocationContext from '../../store/location-context';
 import useHttp from '../../hooks/use-http';
 
-export default function LocationsListItem(props) {
+const LocationsListItem = (props) => {
   const ctx = useContext(LocationContext);
   const { sendRequest } = useHttp();
   const getWeatherData = () => {
@@ -12,4 +12,5 @@ export default function LocationsListItem(props) {
   };
   console.log(ctx);
   return <li onClick={getWeatherData}>{`${props.city}, ${props.country}`}</li>;
-}
+};
+export default LocationsListItem;
