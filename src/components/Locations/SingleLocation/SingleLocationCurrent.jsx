@@ -1,19 +1,28 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import useHttp from '../../../hooks/use-http';
+import LocationContext from '../../../store/location-context';
 
 export default function SingleLocationCurrent(props) {
-  console.log(props.currentWeather);
-
+  const { sendRequest } = useHttp();
+  const { id } = useParams();
+  const { locationCurrentWeather, locationCurrentWeatherHandler } =
+    useContext(LocationContext);
   const {
     current: {
       temperature,
       feelsLikeTemp,
       cloudiness,
       windSpeed,
-
       symbol,
       symbolPhrase,
     },
   } = props.currentWeather;
+
+  // useEffect(() => {
+  //   sendRequest('current', id, locationCurrentWeatherHandler);
+  //   // sendRequest('forecast', id, locationForecastHandler);
+  // }, []);
 
   return (
     <div>

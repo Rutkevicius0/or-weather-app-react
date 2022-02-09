@@ -7,7 +7,7 @@ export default function SingleLocationForecast(props) {
   return (
     <ul>
       {forecast.map((fObj) => (
-        <ForecastItem forecastData={fObj} />
+        <ForecastItem key={fObj.date} forecastData={fObj} />
       ))}
     </ul>
   );

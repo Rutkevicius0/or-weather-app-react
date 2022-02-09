@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 const useHttp = () => {
   const sendRequest = useCallback(async (requestFor, value, callbackFn) => {
@@ -19,6 +19,7 @@ const useHttp = () => {
     if (value === '') {
       return;
     }
+
     try {
       await fetch(url, {
         method: 'GET',
@@ -31,6 +32,8 @@ const useHttp = () => {
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
+          // if (!isMounted) return null;
+          console.log('praejo');
           callbackFn(data);
         })
         .catch((err) => {
@@ -38,6 +41,7 @@ const useHttp = () => {
         });
     } catch (error) {}
   }, []);
+
   return { sendRequest };
 };
 
