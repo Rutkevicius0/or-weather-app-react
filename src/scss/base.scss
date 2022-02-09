@@ -1,0 +1,27 @@
+$font-stack: ' montseratt ', sans-serif;
+$primary-color: #333;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font: $font-stack;
+  padding-top: 2rem;
+  background: rgb(46, 39, 162);
+  background: linear-gradient(
+    180deg,
+    rgba(46, 39, 162, 1) 0%,
+    rgba(80, 80, 242, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+.app {
+  color: $primary-color;
+  text-align: center;
+  height: 100vh;
+}
+.router-link {
+  text-decoration: none;
+  color: $primary-color;
+}

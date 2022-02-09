@@ -7,15 +7,24 @@ export default function SearchForm(props) {
     event.preventDefault();
   };
   return (
-    <form onSubmit={submitHandler}>
-      <label htmlFor="location">Location</label>
-      <input
-        type="text"
-        id="location"
-        onChange={(e) => {
-          ctx.searchInputValueHandler(e.target.value);
-        }}
-      />
+    <form
+      onSubmit={submitHandler}
+      className="bg-white rounded
+    p-3"
+    >
+      <div className="mb-3">
+        <label htmlFor="location" className="form-label">
+          Location
+        </label>
+        <input
+          className="form-control"
+          type="text"
+          id="location"
+          onChange={(e) => {
+            ctx.searchInputValueHandler(e.target.value);
+          }}
+        />
+      </div>
     </form>
   );
 }

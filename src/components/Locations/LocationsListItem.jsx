@@ -14,8 +14,11 @@ const LocationsListItem = (props) => {
   };
   console.log(ctx);
   return (
-    <li onClick={getWeatherData}>
-      <Link to={`/${props.country}/${props.city}/${props.id}`}>
+    <li onClick={getWeatherData} className="list-group-item p-3 mt-1 rounded">
+      <Link
+        className="router-link"
+        to={`/${props.country}/${props.city}/${props.id}`}
+      >
         {`${props.city}, ${props.country}`}
       </Link>
     </li>
