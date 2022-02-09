@@ -1,5 +1,5 @@
 import { useEffect, useContext } from 'react';
-import './App.css';
+import './scss/base.scss';
 import useHttp from './hooks/use-http';
 
 import LocationContext from './store/location-context';
@@ -9,12 +9,14 @@ import WeatherPage from './pages/Weatherpage';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/:country/:city/:id" element={<WeatherPage />} />
-        <Route path="/" element={<Homepage />}></Route>
-      </Routes>
-    </BrowserRouter>
+    <div className="app container">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/:country/:city/:id" element={<WeatherPage />} />
+          <Route path="/" element={<Homepage />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 

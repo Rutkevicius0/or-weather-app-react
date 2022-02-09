@@ -1,10 +1,9 @@
 import React, { useEffect, useContext, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-
-import SingleLocationCurrent from '../components/Locations/SingleLocation/SingleLocationCurrent';
-import SingleLocationForecast from '../components/Locations/SingleLocation/SingleLocationForecast';
 import useHttp from '../hooks/use-http';
 import LocationContext from '../store/location-context';
+import SingleLocationCurrent from '../components/Locations/SingleLocation/SingleLocationCurrent';
+import SingleLocationForecast from '../components/Locations/SingleLocation/SingleLocationForecast';
 
 export default function WeatherPage() {
   useEffect(() => {
@@ -21,6 +20,7 @@ export default function WeatherPage() {
     locationForecast,
     locationCurrentWeatherHandler,
     locationForecastHandler,
+    singleLocationInfoHandler,
   } = useContext(LocationContext);
   const { sendRequest } = useHttp();
   const { id, city, country } = useParams();
@@ -37,6 +37,10 @@ export default function WeatherPage() {
   }, []);
   console.log(mounted);
   console.log(locationCurrentWeather);
+
+  // sendRequest('current', id, locationCurrentWeatherHandler);
+  // sendRequest('forecast', id, locationForecastHandler);
+
   return (
     <div>
       <h2>{`Current weather in ${city}, ${country}`}</h2>
