@@ -28,8 +28,12 @@ export default function WeatherPage() {
   return (
     <div>
       <h2>{`Current weather in ${city}, ${country}`}</h2>
-      <SingleLocationCurrent currentWeather={locationCurrentWeather} />
-      <SingleLocationForecast forecast={locationForecast} />
+      {locationCurrentWeather.current && (
+        <SingleLocationCurrent currentWeather={locationCurrentWeather} />
+      )}
+      {locationForecast.forecast && (
+        <SingleLocationForecast forecast={locationForecast} />
+      )}
     </div>
   );
 }
