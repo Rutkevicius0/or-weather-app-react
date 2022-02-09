@@ -6,6 +6,7 @@ $primary-color: #333;
   box-sizing: border-box;
 }
 body {
+  height: 100vh;
   font: $font-stack;
   padding-top: 2rem;
   background: rgb(46, 39, 162);
@@ -20,6 +21,12 @@ body {
   color: $primary-color;
   text-align: center;
   height: 100vh;
+}
+.container-trans {
+  background-color: rgba(255, 250, 250, 0.5);
+  padding: 3rem;
+  border-radius: 5px;
+  height: 95vh;
 }
 .router-link {
   text-decoration: none;

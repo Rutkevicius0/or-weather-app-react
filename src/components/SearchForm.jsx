@@ -20,6 +20,7 @@ export default function SearchForm(props) {
           className="form-control"
           type="text"
           id="location"
+          placeholder="Enter city"
           onChange={(e) => {
             ctx.searchInputValueHandler(e.target.value);
           }}

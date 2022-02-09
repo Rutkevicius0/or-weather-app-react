@@ -10,7 +10,7 @@ const LocationsList = (props) => {
   );
   console.log(searchResults);
   return (
-    <ul className="list-group mt-3">
+    <ul className="list-group mt-3 overflow-auto">
       {slicedSearchResults.map(({ id, name: city, country }) => (
         <LocationsListItem key={id} id={id} city={city} country={country} />
       ))}
