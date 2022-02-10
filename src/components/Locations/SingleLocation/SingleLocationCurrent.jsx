@@ -30,7 +30,7 @@ export default function SingleLocationCurrent(props) {
         <h3 className="">
           {temperature} <span>°C</span>
         </h3>
-        <h4 className="">Feels like {feelsLikeTemp} °C</h4>
+        <h4 className="">Feels like {feelsLikeTemp}°C</h4>
         <p>Cloudiness: {cloudiness}%</p>
         <p>Wind speed: {windSpeed} m/s</p>
       </div>

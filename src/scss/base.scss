@@ -1,24 +1,23 @@
-$font-stack: ' montseratt ', sans-serif;
-$primary-color: #333;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,700;1,400&display=swap');
+$font-stack: ' Montseratt ', sans-serif;
+$primary-color: rgb(65, 65, 65);
 $light-blue-color: rgba(0, 213, 255, 0.5);
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: $primary-color;
 }
 body {
   height: 100%;
-  font: $font-stack;
+  font-family: $font-stack;
   padding-top: 2rem;
-  background: rgb(46, 39, 162);
-  background: linear-gradient(
-    180deg,
-    rgba(46, 39, 162, 1) 0%,
-    rgba(80, 80, 242, 1) 35%,
-    rgba(0, 212, 255, 1) 100%
-  );
-  background-repeat: no-repeat;
+  background: #000428; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #004e92, #000428);
+  background: linear-gradient(to right, #004e92, #000428);
+
+  background-repeat: repeat;
 }
 .app {
   color: $primary-color;
