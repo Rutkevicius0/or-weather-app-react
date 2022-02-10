@@ -11,7 +11,7 @@ export default function SearchForm(props) {
     <form
       onSubmit={submitHandler}
       className="search-form  rounded
-    p-3"
+    p-3 needs-validation"
     >
       <div className="mb-3">
         <label htmlFor="location" className="form-label">
@@ -26,6 +26,7 @@ export default function SearchForm(props) {
             ctx.searchInputValueHandler(e.target.value);
           }}
         />
+        <div>Search value too long (up to 30 letters)</div>
       </div>
     </form>
   );
