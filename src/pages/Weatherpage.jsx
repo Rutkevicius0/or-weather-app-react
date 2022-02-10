@@ -26,7 +26,6 @@ export default function WeatherPage() {
   const { id, city, country } = useParams();
   const mountedRef = useRef();
 
-  // const { name: city, country } = singleLocationInfo;
   useEffect(() => {
     mounted.current = true;
     sendRequest('current', id, locationCurrentWeatherHandler);
@@ -42,8 +41,8 @@ export default function WeatherPage() {
   // sendRequest('forecast', id, locationForecastHandler);
 
   return (
-    <div className="container">
-      <h2 className="text-secondary">{`Current weather in ${city}, ${country}`}</h2>
+    <div className="container container-trans">
+      {/* <h2 className="text-secondary">{`Current weather in ${city}, ${country}`}</h2> */}
       {locationCurrentWeather.current && (
         <SingleLocationCurrent currentWeather={locationCurrentWeather} />
       )}

@@ -6,7 +6,7 @@ export default function ForecastItem(props) {
   const transformDate = () => {
     const wd = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const d = new Date(date);
-    console.log(d);
+
     const day = wd[d.getDay()];
     return day;
   };
