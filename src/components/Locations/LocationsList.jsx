@@ -8,7 +8,7 @@ const LocationsList = (props) => {
     () => searchResults.slice(0, 5),
     [searchResults],
   );
-  console.log(searchResults);
+
   return (
     <ul
       className="list-group

@@ -1,13 +1,10 @@
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
-import useHttp from '../../../hooks/use-http';
-import LocationContext from '../../../store/location-context';
+
 import '../../../scss/weather.scss';
 export default function SingleLocationCurrent(props) {
-  const { sendRequest } = useHttp();
-  const { id, city, country } = useParams();
-  const { locationCurrentWeather, locationCurrentWeatherHandler } =
-    useContext(LocationContext);
+  const { city, country } = useParams();
+
   const {
     current: {
       temperature,
@@ -18,11 +15,6 @@ export default function SingleLocationCurrent(props) {
       symbolPhrase,
     },
   } = props.currentWeather;
-
-  // useEffect(() => {
-  //   sendRequest('current', id, locationCurrentWeatherHandler);
-  //   // sendRequest('forecast', id, locationForecastHandler);
-  // }, []);
 
   return (
     <div className="card pt-3">

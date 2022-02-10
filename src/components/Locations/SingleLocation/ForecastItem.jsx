@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../../../scss/weather.scss';
 export default function ForecastItem(props) {
-  const [weekday, setWeekday] = useState('');
   const { date, minTemp, maxTemp, symbol } = props.forecastData;
   const transformDate = () => {
     const wd = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
