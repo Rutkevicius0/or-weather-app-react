@@ -42,8 +42,8 @@ export default function WeatherPage() {
   // sendRequest('forecast', id, locationForecastHandler);
 
   return (
-    <div>
-      <h2>{`Current weather in ${city}, ${country}`}</h2>
+    <div className="container">
+      <h2 className="text-secondary">{`Current weather in ${city}, ${country}`}</h2>
       {locationCurrentWeather.current && (
         <SingleLocationCurrent currentWeather={locationCurrentWeather} />
       )}

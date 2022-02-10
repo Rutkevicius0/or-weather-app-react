@@ -5,7 +5,7 @@ export default function SingleLocationForecast(props) {
   console.log(props.forecast);
   const { forecast } = props.forecast;
   return (
-    <ul>
+    <ul className="list-group">
       {forecast.map((fObj) => (
         <ForecastItem key={fObj.date} forecastData={fObj} />
       ))}
