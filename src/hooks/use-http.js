@@ -1,5 +1,4 @@
-import { useCallback, useEffect, useRef } from 'react';
-
+import { useCallback } from 'react';
 const useHttp = () => {
   const sendRequest = useCallback(async (requestFor, value, callbackFn) => {
     let url = 'https://foreca-weather.p.rapidapi.com/';
@@ -25,15 +24,13 @@ const useHttp = () => {
         method: 'GET',
         headers: {
           'x-rapidapi-host': 'foreca-weather.p.rapidapi.com',
-          'x-rapidapi-key':
-            '3505f65e4cmsh45e2e9294ac6901p124043jsnf13155154975',
+          'x-rapidapi-key': process.env.REACT_APP_API_KEY,
         },
       })
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
-          // if (!isMounted) return null;
-          console.log('praejo');
+
           callbackFn(data);
         })
         .catch((err) => {
