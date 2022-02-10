@@ -35,3 +35,20 @@ body {
   text-decoration: none;
   color: $primary-color;
 }
+.search-form {
+  background-color: snow;
+}
+@media screen and(min-width:1024px) {
+  .homepage {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .search-form {
+    width: 49%;
+  }
+  .locations-list {
+    width: 49%;
+  }
+}

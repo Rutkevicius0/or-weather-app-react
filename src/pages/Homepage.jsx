@@ -30,7 +30,7 @@ export default function Homepage() {
     };
   }, [sendRequest, searchInputValue, searchResultsHandler]);
   return (
-    <div className="container-trans">
+    <div className="container-trans ">
       <div className="container mb-3 d-flex justify-content-center">
         <img
           style={{ width: '4rem' }}
@@ -41,8 +41,10 @@ export default function Homepage() {
           OR Weather App
         </h1>
       </div>
-      <SearchForm />
-      <LocationsList />
+      <div className="homepage">
+        <SearchForm />
+        <LocationsList />
+      </div>
     </div>
   );
 }

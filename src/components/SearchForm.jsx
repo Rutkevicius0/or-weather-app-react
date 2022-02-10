@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import LocationContext from '../store/location-context';
+import '../scss/base.scss';
 
 export default function SearchForm(props) {
   const ctx = useContext(LocationContext);
@@ -9,7 +10,7 @@ export default function SearchForm(props) {
   return (
     <form
       onSubmit={submitHandler}
-      className="bg-white rounded
+      className="search-form  rounded
     p-3"
     >
       <div className="mb-3">
