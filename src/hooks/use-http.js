@@ -29,8 +29,6 @@ const useHttp = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
-
           callbackFn(data);
         })
         .catch((err) => {
